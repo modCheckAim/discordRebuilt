@@ -1,0 +1,25 @@
+
+{
+    "name": "discordRebuilt",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "discord.js": "github:swoopnts/discord.js",
+        "express": "^4.17.1",
+        "node-fetch": "^2.1.0",
+        "ws": "^8.3.0"
+      },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/swoopnts/discordRebuilt.git"
+    },
+    "engines": {
+        "node": "16.x"
+    },
+    "author": "swoop",
+    "license": "ISC",
+    "homepage": "https://github.com/monatheoctocat/my_package"
+  }
