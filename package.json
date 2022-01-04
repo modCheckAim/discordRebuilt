@@ -1,9 +1,8 @@
 {
     "name": "discordRebuilt",
     "version": "1.0.0",
-    "main": "server.js",
     "scripts": {
-        "start": "node server.js"
+        "build": "node ./backend/server.js"
     },
     "dependencies": {
         "discord.js": "github:swoopnts/discord.js",
@@ -20,5 +19,5 @@
     },
     "author": "swoop",
     "license": "ISC",
-    "homepage": "https://github.com/monatheoctocat/my_package"
+    "homepage": "https://github.com/swoopnts/discordRebuilt"
   }
