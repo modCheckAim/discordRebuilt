@@ -7,9 +7,9 @@ var PORT = process.env.PORT || 5005;
 var server = app.listen(PORT); 
 
 const token = process.env.token;
-const Discord = require('discord.js');
-const client = new Discord.Client();
 const fetch = require('node-fetch');
+
+const Client = require('./client');
 
 const WebSocket = require('ws')
 
@@ -17,7 +17,7 @@ const wss = new WebSocket.Server({ server });
 
 wss.on('connection', ws => {
 
-  client.on('message', msg => {
+  Client.on('message', msg => {
     ws.send(JSON.stringify({
       type: 'MESSAGE',
       content: msg.content,
@@ -37,7 +37,7 @@ wss.on('connection', ws => {
 app.get("/", (req, res) => {
   res.sendFile(process.cwd() + "/html/index.html"); 
     
-  await client.once('ready', () => {
+  await Client.once('ready', () => {
     console.log('client ready!');
   });
 })
@@ -65,10 +65,10 @@ app.post("/showChannels/:serverID", (req, res) => {
 })
 
 app.post("/postMsg/:serverID/:channelID", (req, res) => {
-    var ctx = client.guilds.get(req.params.serverID).channels.get(req.params.channelID);
+    var ctx = Client.guilds.get(req.params.serverID).channels.get(req.params.channelID);
     
     ctx.send(req.body.content);
     res.send('Message sent.');
 });
 
-client.login(token);
+Client.login(token);
