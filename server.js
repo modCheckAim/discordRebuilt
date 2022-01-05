@@ -35,9 +35,11 @@ wss.on('connection', ws => {
 })
 
 app.get("/", (req, res) => {
-    client.once('ready', () => {
-      res.sendFile(__dirname + "/html/index.html");
-    })  
+  res.sendFile(process.cwd() + "/html/index.html"); 
+    
+  await client.once('ready', () => {
+    console.log('client ready!');
+  });
 })
 
 app.post("/showServers", (req, res) => { 
