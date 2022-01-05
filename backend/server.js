@@ -42,27 +42,8 @@ app.get("/", (req, res) => {
   });
 })
 
-app.post("/showServers", (req, res) => { 
-   var guilds = [];
-     
-   client.guilds.forEach(guild => {
-      guilds.push({ guildId: guild.id, guildName: guild.name });   
-   });
-   
-   res.send(guilds);
-});
-
-app.post("/showChannels/:serverID", (req, res) => {
-    var channels = [];
-    
-    client.guilds.get(req.params.serverID).channels.forEach(chan => {
-      if (chan.type === "text") {
-        channels.push({ serverId: chan.guild.id, channelId: chan.id, channelName: chan.name })
-      }
-    })
-
-    res.send(channels);
-})
+const showRouter = require('./routes/show');
+app.use("/show", showRouter);
 
 app.post("/postMsg/:serverID/:channelID", (req, res) => {
     var ctx = Client.guilds.get(req.params.serverID).channels.get(req.params.channelID);

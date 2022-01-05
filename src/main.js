@@ -29,7 +29,7 @@ var serverShow = document.getElementsByClassName("showBtn")[0];
 var channelShow = document.getElementsByClassName("showBtn")[1];
 
 serverShow.addEventListener("click", () => {
-  fetch(document.location + "/showServers", {
+  fetch(document.location + "/show/servers", {
     method: 'POST'
   }).then(resp => resp.json())
   .then(data => {
@@ -47,7 +47,7 @@ serverShow.addEventListener("click", () => {
 channelShow.addEventListener("click", () => {
   if (!serverVal.id) return alert("Please input a server first.");
   
-  fetch(document.location + `showChannels/${serverVal.id}`, {
+  fetch(document.location + `/show/channels/${serverVal.id}`, {
     method: 'POST'
   }).then(resp => resp.json())
   .then(data => {
@@ -76,7 +76,7 @@ serverVal.addEventListener("input", () => {
     }
     
   } else {
-    fetch(document.location + "/showServers", {
+    fetch(document.location + "/show/servers", {
     method: 'POST'
     }).then(resp => resp.json())
     .then(data => {
@@ -95,7 +95,7 @@ channelVal.addEventListener("input", () => {
         }
       }
     } else {
-      fetch(document.location + `/showChannels/${serverVal.id}`, {
+      fetch(document.location + `/show/channels/${serverVal.id}`, {
         method: 'POST'
       }).then(resp => resp.json())
       .then(data => {
