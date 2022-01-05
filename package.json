@@ -1,5 +1,5 @@
 {
-    "name": "discordRebuilt",
+    "name": "discordrebuilt",
     "version": "1.0.0",
     "scripts": {
         "build": "node ./backend/server.js"
