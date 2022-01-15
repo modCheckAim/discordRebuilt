@@ -21,7 +21,7 @@ wss.on('connection', ws => {
     ws.send(JSON.stringify({
       type: 'MESSAGE',
       content: msg.content,
-      author: msg.author.username,
+      authorName: (msg.member ? (msg.member.nickname === null ? msg.author.username : msg.member.nickname) : msg.author.username),
       authorId: msg.author.id,
       timestamp: msg.createdTimestamp,
       server: (msg.guild ? msg.guild.id : "DM"),

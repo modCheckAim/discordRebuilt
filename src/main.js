@@ -20,7 +20,7 @@ webSocket.onmessage = (event) => {
   if (serverVal.id == data.server && channelVal.id == data.channel) {
     var timestamp = new Date(data.timestamp).toLocaleString();
   
-    mainCont.innerHTML += `<p><small style="color:#bfbfbf;">${timestamp}</small> ${data.author}: ${data.content}</p>`
+    mainCont.innerHTML += `<p><small style="color:#bfbfbf;">${timestamp}</small> ${data.authorName}: ${data.content}</p>`
   }
 };
 
