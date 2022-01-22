@@ -45,12 +45,7 @@ app.get("/", (req, res) => {
 
 const showRouter = require('./routes/show');
 app.use("/show", showRouter);
-
-app.post("/postMsg/:serverID/:channelID", (req, res) => {
-    var ctx = Client.guilds.get(req.params.serverID).channels.get(req.params.channelID);
-    
-    ctx.send(req.body.content);
-    res.send('Message sent.');
-});
+const postRouter = require('./routes/post');
+app.use("/post", postRouter);
 
 Client.login(token);
