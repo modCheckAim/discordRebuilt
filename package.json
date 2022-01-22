@@ -6,19 +6,19 @@
         "build": "node ./backend/server.js"
     },
     "dependencies": {
-        "discord.js": "github:swoopnts/discord.js",
+        "discord.js": "discord.js-selfbot-v11",
         "express": "^4.17.1",
         "node-fetch": "^2.1.0",
         "ws": "^8.3.0"
       },
     "repository": {
       "type": "git",
-      "url": "https://github.com/swoopnts/discordRebuilt.git"
+      "url": "https://github.com/raza10k/discordRebuilt.git"
     },
     "engines": {
         "node": "16.x"
     },
-    "author": "swoop",
+    "author": "raza",
     "license": "ISC",
-    "homepage": "https://github.com/swoopnts/discordRebuilt"
+    "homepage": "https://github.com/raza10k/discordRebuilt"
   }
