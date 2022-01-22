@@ -3,10 +3,10 @@ const app = express();
 
 app.use(express.json());
 app.use("/src", express.static("./src/"))
-var PORT = process.env.PORT || 5005;
-var server = app.listen(PORT); 
+let PORT = process.env.PORT || 5005;
+let server = app.listen(PORT); 
 
-const token = process.env.token;
+const TOKEN = process.env.token;
 const fetch = require('node-fetch');
 
 const Client = require('./client');
@@ -26,7 +26,7 @@ wss.on('connection', ws => {
       timestamp: msg.createdTimestamp,
       server: (msg.guild ? msg.guild.id : "DM"),
       channel: msg.channel.id,
-      roleColor: (msg.member ? msg.member.displayHexColor : "#FFFFFF")
+      roleColor: (msg.member ? (msg.member.displayHexColor === "#000000" ? "#FFFFFF" : msg.member.displayHexColor) : "#FFFFFF")
     }));  
   });
   
@@ -37,10 +37,6 @@ wss.on('connection', ws => {
 
 app.get("/", (req, res) => {
   res.sendFile(process.cwd() + "/html/index.html"); 
-    
-  await Client.once('ready', () => {
-    console.log('client ready!');
-  });
 })
 
 const showRouter = require('./routes/show');
@@ -48,4 +44,4 @@ app.use("/show", showRouter);
 const postRouter = require('./routes/post');
 app.use("/post", postRouter);
 
-Client.login(token);
+Client.login(TOKEN);
