@@ -26,7 +26,7 @@ wss.on('connection', ws => {
       timestamp: msg.createdTimestamp,
       server: (msg.guild ? msg.guild.id : "DM"),
       channel: msg.channel.id,
-      roleColor: (msg.member ? (msg.member.displayHexColor === "#000000" ? "#FFFFFF" : msg.member.displayHexColor) : "#FFFFFF")
+      roleColor: (msg.member ? msg.member.displayHexColor : "#FFFFFF")
     }));  
   });
   
